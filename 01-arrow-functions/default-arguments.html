@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default arguments</title>
+</head>
+
+<body>
+    <script>
+        function calculateBill(total, tax, tip) {
+            // if (tax === undefined) {
+            //     tax = 0.13
+            // }
+            // instead this block if we use the next constructions
+
+            tax = tax || 0.13;
+            tip = tip || 0.15;
+
+            return total + (total * tax) + (total * tip);
+        }
+        // or 
+        // function calculateBill(total, tax = 0.13, tip = 0.15) {
+        //     return total + (total * tax) + (total * tip);
+        // }
+
+        const totalBill = calculateBill(100, undefined, 0.25);
+
+        console.log(totalBill);
+
+
+    </script>
+</body>
+
+</html>
