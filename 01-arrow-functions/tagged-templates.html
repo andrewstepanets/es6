@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagget templates</title>
+    <style>
+        .hl {
+            background: #ffc600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        function highlight(strings, ...values) {
+            let str = '';
+            strings.forEach((string, i) => {
+                str += `${string} <span contenteditable class="hl">${values[i] || ''}</span>`;
+            });
+            return str;
+        }
+
+        const name = 'White';
+        const age = 4;
+        const sentence = highlight`My dog's name is ${name} and it is ${age} years old`;
+
+        document.body.innerHTML = sentence;
+        console.log(sentence);
+
+    </script>
+</body>
+
+</html>
