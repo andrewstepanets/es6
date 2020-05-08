@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New string methods</title>
+</head>
+
+<body>
+
+
+    <script>
+        const course = 'RFB2';
+        const flightNumber = '20-AC2018-jz';
+        const accountNumber = '825242631RT0001';
+
+        const make = 'BMW';
+        const model = 'x5';
+        const colour = 'Royal Blue';
+
+
+        console.log(course.startsWith('RFB2')); // true
+        console.log(flightNumber.startsWith('AC')); // false
+        console.log(flightNumber.startsWith('AC', 3)); // true
+        console.log(flightNumber.endsWith('jz')); // true
+        console.log(accountNumber.endsWith('RT', 11)); // true
+
+        // includes
+        console.log(flightNumber.includes('AC')); // true
+        console.log(flightNumber.includes('ac')); // false
+
+        // repeat
+
+        function leftPad(str, length = 20) {
+            return `-> ${' '.repeat(length - str.length)}${str}`;
+        }
+
+        console.log(leftPad(make));
+        console.log(leftPad(model));
+        console.log(leftPad(colour));
+
+    </script>
+</body>
+
+</html>
