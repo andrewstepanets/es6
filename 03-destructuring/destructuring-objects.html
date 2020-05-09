@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            first: 'Andy',
+            last: 'Steps',
+            country: 'Canada',
+            city: 'Halifax',
+            twitter: '@steps'
+        };
+
+        // const first = person.first;
+        // const last = person.last;
+        // instead this we use destructuring
+
+        const { first, last } = person;
+
+        console.log(first);
+
+        const andrew = {
+            first: 'Andy',
+            last: 'Steps',
+            links: {
+                social: {
+                    twitter: 'https://twitter.com',
+                    facebook: 'https://facebook.com'
+                },
+                web: {
+                    blog: 'https://belova.biz'
+                }
+            }
+        }
+
+        // const twitter = andrew.links.social.twitter;
+        // const facebook = andrew.links.social.facebook;
+
+        // const { twitter, facebook } = andrew.links.social;
+        // console.log(twitter);
+        // if you want change properties
+        const { twitter: tweet, facebook: fb } = andrew.links.social;
+
+        console.log(tweet, fb);
+
+        const settings = { width: 300, color: 'black' }  // height, fontsize
+        // if you use default settings can't change
+        // const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings  // 
+
+        // Object destructuring with variables renaming & default values
+
+        const { w: width = 400, h: height = 500 } = { w: 800 }  // 
+
+
+    </script>
+</body>
+
+</html>

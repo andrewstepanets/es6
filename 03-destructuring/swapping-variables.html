@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swapping variables</title>
+</head>
+
+<body>
+
+    <script>
+        let inRing = 'Hulk Hogan';
+        let onSide = 'The Rock';
+
+        // var tmp = inRing;
+        // inRing = onSide;
+        // onSide = tmp;
+        // instead of this
+
+        console.log(inRing, onSide);
+
+        [inRing, onSide] = [onSide, inRing];
+
+        console.log(inRing, onSide);
+
+
+    </script>
+</body>
+
+</html>
