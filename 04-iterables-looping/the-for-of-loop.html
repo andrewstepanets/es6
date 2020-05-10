@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The for of loop</title>
+</head>
+
+<body>
+
+    <p>Hi, I'm a p 01</p>
+    <p>Hi, I'm a p 02</p>
+    <p>Hi, I'm a p 03</p>
+    <p>Hi, I'm a p 04</p>
+    <p>Hi, I'm a p 05</p>
+    <p>Hi, I'm a p 06</p>
+    <p>Hi, I'm a p 07</p>
+    <p>Hi, I'm a p 08</p>
+    <p>Hi, I'm a p 09</p>
+    <p>Hi, I'm a p 10</p>
+
+    <script>
+        const cuts = ['Andrew', 'Leo', 'Ivanka', 'Tanya'];
+
+        // cuts.forEach(cut => {
+        //     console.log(cut);
+        // })
+
+        // for (const [i, cut] in cuts.entries()) {
+        //     console.log(`${cut} is the ${i + 1} item`);
+        // }
+
+        function addUpNumbers() {
+            // console.log(arguments);
+            let total = 0;
+            for (num of arguments) {
+                total += num;
+            }
+            console.log(total);
+
+            return total;
+
+        }
+
+        addUpNumbers(10, 23, 52, 34, 55, 67, 122) //summarizing function
+
+        const name = 'Andy Steps';
+        for (const char of name) {
+            console.log(char);
+
+        }
+
+        const ps = document.querySelectorAll('p');
+
+        for (const paragraph of ps) {
+            // console.log(paragraph);
+            paragraph.addEventListener('click', function () {
+                console.log(this.textContent);
+
+            })
+
+        }
+    </script>
+</body>
+
+</html>

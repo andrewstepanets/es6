@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using for with Objects</title>
+</head>
+
+<body>
+
+    <script>
+        const apple = {
+            color: 'red',
+            size: 'Medium',
+            weight: 50,
+            sugar: 10,
+        }
+
+        // for-of don't itterable for objects
+        for (const prop of Object.keys(apple)) {
+
+            const value = apple[prop];
+            console.log(value, prop);
+        }
+
+        // very similar solution is 
+        for (const prop in apple) {
+
+            const value = apple[prop];
+            console.log(value, prop);
+        }
+
+        // using for-in for objects
+    </script>
+
+</body>
+
+</html>
