@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The ...Spread Operator</title>
+</head>
+
+<body>
+    <script>
+
+        const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+        const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+        // let pizzas = [];
+        // pizzas = pizzas.concat(specialty);
+        // pizzas.push('veg');
+        // pizzas = pizzas.concat(specialty);
+        const pizzas = [...featured, 'veg', ...specialty];
+
+        // if I want to have  a new Array, it can be released
+        // this
+        // const fridayPizzas = [].concat(pizzas);
+        // but perfectly use spread operator
+        const fridayPizzas = [...pizzas];
+
+        console.log(pizzas);
+
+
+        const deepDish = {
+            pizzaName: 'Deep Dish',
+            size: 'Medium',
+            ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+        };
+
+    </script>
+</body>
+
+</html>
