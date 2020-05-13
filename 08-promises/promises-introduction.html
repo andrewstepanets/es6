@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Promises!</title>
+</head>
+
+<body>
+    <script>
+        const postsPromise = fetch('https://icanhazdadjoke.com', {
+            // this is API response format on the site
+            // https://icanhazdadjoke.com/api
+            headers: {
+                Accept: 'application/json',
+            },
+        });
+
+        postsPromise
+            .then(data => data.json())
+            .then(data =>
+                console.log(data))
+            .catch(err =>
+                console.error(err));
+
+
+
+        //     .then(data => { console.log(data) })
+        //     .catch((err) => {
+        //         console.error(err);
+        //     })
+
+    </script>
+</body>
+
+</html>
