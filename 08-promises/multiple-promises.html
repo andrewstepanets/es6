@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chaining Promises</title>
+</head>
+
+<body>
+    <script>
+        // const weather = new Promise((resolve) => {
+        //     setTimeout(() => {
+        //         resolve({ temp: 29, conditions: 'Sunny with Clouds' });
+        //     }, 2000);
+        // });
+
+        // const tweets = new Promise((resolve) => {
+        //     setTimeout(() => {
+        //         resolve(['I like cake', 'BBQ is good too!']);
+        //     }, 500);
+        // });
+
+        // Promise
+        //     .all([weather, tweets])
+        //     .then(responses => {
+        //         const [weatherInfo, tweetsInfo] = responses;
+        //         console.log(weatherInfo, tweetsInfo);
+
+        //     });
+
+        const postsPromise = fetch('https://icanhazdadjoke.com', {
+            // this is API response format on the site
+            // https://icanhazdadjoke.com/api
+            headers: {
+                Accept: 'application/json',
+            },
+        });
+        const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
+
+        Promise
+            .all([postsPromise, streetCarsPromise])
+            .then(responses => {
+                return Promise.all(responses.map(res => res.json()))
+            })
+            .then(responses => {
+                console.log(responses);
+            });
+
+    </script>
+</body>
+
+</html>
