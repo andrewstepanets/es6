@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbols</title>
+</head>
+
+<body>
+    <script>
+        const andy = Symbol('Andy');
+        const person = Symbol('Andy');
+
+        const classRoom = {
+            [Symbol('Leo')]: { grade: 12, gender: 'male' },
+            [Symbol('Ivanka')]: { grade: 10, gender: 'male' },
+            [Symbol('Ivanka')]: { grade: 10, gender: 'male' },
+        }
+
+        // for (person in classRoom) {
+        //     console.log(person);
+        // }
+        // this doesn't work because Symbol isn't a key
+
+        const syms = Object.getOwnPropertySymbols(classRoom);
+        console.log(syms);
+        const data = syms.map(sym => classRoom[sym]);
+        console.log(data);
+
+
+    </script>
+</body>
+
+</html>
