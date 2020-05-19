@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inheritance Review</title>
+</head>
+
+<body>
+    <script>
+        // class declaration
+
+        // instead this 
+        // function Dog(name, breed) {
+        //     this.name = name;
+        //     this.breed = breed;
+        // } 
+        class Dog {
+            constructor(name, breed) {
+                this.name = name;
+                this.breed = breed;
+            }
+            bark() {
+                console.log(`Bark Bark! My name is ${this.name}`);
+            }
+            cuddle() {
+                console.log(`I love you owner!`);
+            }
+            static info() {
+                console.log('a dog is better than a cat by 10 times');
+            }
+            get description() {
+                return `${this.name} is a ${this.breed} type of dog`;
+            }
+            set nicknames(value) {
+                this.nick = value.trim();
+            }
+            get nicknames() {
+                return this.nick.toUpperCase();
+            }
+        }
+
+        // class expression 
+        // const Dog = class {
+
+        // }
+
+
+        const white = new Dog('White', 'King Charles');
+        const mona = new Dog('Mona', 'Golden Doodle');
+
+    </script>
+</body>
+
+</html>
