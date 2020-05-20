@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with proxies</title>
+</head>
+
+<body>
+    <script>
+        // this example is demonstrated how we can forbid to set lower case in proxies name
+        const safeHandler = {
+            set(target, name, value) {
+                const likeKey = Object.keys(target).find(k => k.toLowerCase() === name.toLowerCase());
+                if (!(name in target) && likeKey) {
+                    throw new Error(`Oops! Looks like we already have a(n) ${name} property but with the case of ${likeKey}.`)
+                }
+                target[name] = value;
+            }
+        }
+        const safety = new Proxy({ id: 100 }, safeHandler);
+
+        safety.ID = 200;
+
+
+    </script>
+</body>
+
+</html>
