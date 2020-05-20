@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Maps!</title>
+    <style>
+        button {
+            font-size: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let dog1 = { name: 'White' };
+        let dog2 = { name: 'Mona' };
+
+        const strong = new Map();
+        const weak = new WeakMap();
+
+        strong.set(dog1, 'Whire is the best!');
+        weak.set(dog2, 'Mona is the 2nd best!');
+
+        dog1 = null;
+        dog2 = null;
+
+    </script>
+</body>
+
+</html>
