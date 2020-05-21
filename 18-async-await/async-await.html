@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+</head>
+
+<body>
+    <script>
+        function breathe(amount) {
+            return new Promise((resolve, reject) => {
+                if (amount < 500) {
+                    reject('That is too small of a value');
+                }
+                setTimeout(() => {
+                    resolve(`Done for a ${amount} ms`)
+                }, amount);
+            });
+        }
+
+
+        function catchErrors(fn) {
+            return function (...args) {
+                return fn(...args).catch(err => {
+                    console.error('Ohhhhh noooo!!!');
+                    console.error(err);
+                });
+            }
+        }
+
+        async function go(name, last) {
+
+            // to catch the error it need to use a try-catch
+            // try {
+            //     console.log('start');
+            //     const res = await breathe(1000);
+            //     console.log(res);
+            //     const res2 = await breathe(300);
+            //     console.log(res2);
+            //     const res3 = await breathe(750);
+            //     console.log(res3);
+            //     const res4 = await breathe(900);
+            //     console.log(res4);
+            //     console.log('end');
+            // } catch (err) {
+            //     console.error('Ohhhhh noooo!!!');
+            //     console.error(err);
+            // }
+            // instead this huge block of code we use high-order function and give a name
+            // catchErrors
+
+            console.log(`Starting for ${name} ${last}`);
+            const res = await breathe(1000);
+            console.log(res);
+            const res2 = await breathe(600);
+            console.log(res2);
+            const res3 = await breathe(750);
+            console.log(res3);
+            const res4 = await breathe(900);
+            console.log(res4);
+            console.log('End');
+        }
+
+        const wrappedFunction = catchErrors(go)
+        wrappedFunction('Andrew', 'Steps');
+
+    </script>
+</body>
+
+</html>
