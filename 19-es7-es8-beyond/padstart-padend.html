@@ -16,6 +16,9 @@
 
         numbers.map(number => console.log(number.toString().padStart(4, '0')));
 
+        numbers2 = [...numbers].map(number => number.toString().padStart(4, '0'));
+        console.table(numbers2);
+
     </script>
 </body>
 
