@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>String padStart and padEnd</title>
+</head>
+
+<body>
+    <script>
+        const strings = ['short', 'medium size', 'this is really really long', 'this is really reall really really really really long'];
+        const longestString = strings.sort((a, b) => b.length - a.length).map(str => str.length)[0];
+
+        strings.forEach(str => console.log(str.padStart(longestString)));
+
+        let numbers = [...Array(10).keys()]; // create Array from numbers
+
+        numbers.map(number => console.log(number.toString().padStart(4, '0')));
+
+    </script>
+</body>
+
+</html>
