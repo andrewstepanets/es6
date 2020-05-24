@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of objects</title>
+</head>
+
+<body>
+
+    <script>
+        const cars = [
+            {
+                color: "purple",
+                type: "minivan",
+                registration: new Date(2020, 05, 25),
+                capacity: 7
+            },
+            {
+                color: "red",
+                type: "station wagon",
+                registration: new Date(2018, 05, 18),
+                capacity: 5
+            }, {
+                color: "blue",
+                type: "hatchback",
+                registration: new Date(2019, 12, 02),
+                capacity: 7
+            },
+            {
+                color: "brown",
+                type: "sedan",
+                registration: new Date(2020, 07, 09),
+                capacity: 5
+            },
+            {
+                color: "red",
+                type: "suv",
+                registration: new Date(2017, 08, 21),
+                capacity: 5
+            },
+            {
+                color: "metallic",
+                type: "crossover",
+                registration: new Date(2019, 01, 25),
+                capacity: 5
+            },
+            {
+                color: "white",
+                type: "convertible",
+                registration: new Date(2019, 09, 15),
+                capacity: 2
+            },
+        ];
+
+        // add a new object at the start
+
+        const newCar1 = {
+            color: "green",
+            type: "cabrio",
+            registration: new Date(2017, 03, 04),
+            capacity: 2
+        }
+
+        console.table(cars);
+
+        cars.unshift(newCar1);
+
+        console.table(cars);
+
+        // add a new object at the end
+        const newCar2 = {
+            color: "olive",
+            type: "suv",
+            registration: new Date(2018, 03, 04),
+            capacity: 5
+        };
+
+        cars.push(newCar2);
+        console.table(cars);
+
+        // Add a new object in the middle of array
+
+        const newCar3 = {
+            color: "orange",
+            type: "minivan",
+            registration: new Date(2019, 03, 04),
+            capacity: 9
+        };
+
+        cars.splice(4, 0, newCar3);
+        console.table(cars);
+
+        // lets find only first red car
+        // find return only one object
+
+        const car = cars.find(car => car.color === 'red');
+        console.log(car);
+
+        // if you want find multiple item from array
+
+        const redCars = cars.filter(car => car.color === 'red');
+
+        console.table(redCars);
+
+        // add property to every object of an array
+        const newCars = [...cars];
+        newCars.forEach(car => {
+            car["size"] = "large";
+            if (car.capacity <= 5) {
+                car["size"] = "medium";
+            }
+            if (car.capacity <= 3) {
+                car["size"] = "small";
+            }
+        });
+        console.table(newCars);
+
+        const sortedCars = newCars.sort((a, b) => a.capacity - b.capacity);
+
+        console.table(sortedCars);
+
+    </script>
+</body>
+
+</html>
